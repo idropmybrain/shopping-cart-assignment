@@ -7,6 +7,7 @@ import {
   Link
 } from "react-router-dom";
 import Button from "../button/button";
+import Cart from "../../images/cart.svg";
 
 import classnames from "classnames";
 import styles from "./header.scss";
@@ -60,6 +61,7 @@ export default function Header({ cartItem, setCartItem }) {
               setOpenCart(!openCart);
             }}
           >
+            <img src={Cart} style={{ height: "40px", width: "40px" }} />
             {Object.keys(cartItem).length}
           </div>
         )}

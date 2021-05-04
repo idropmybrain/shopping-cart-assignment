@@ -5,6 +5,12 @@ import Categories from "../../../dataStore/categories.json";
 import classnames from "classnames";
 import Button from "../button/button";
 import { useHistory } from "react-router-dom";
+import Baby from "../../images/category/baby.png";
+import Beverages from "../../images/category/beverages.png";
+import BakeryCakesDairy from "../../images/category/bakery.png";
+import Beauty from "../../images/category/Beauty.png";
+import Fruit from "../../images/category/fruit-and-veg.png";
+
 var history = null;
 const Home = () => {
   history = useHistory();
@@ -48,9 +54,21 @@ const renderDetails = item => {
 const renderImage = item => {
   return (
     <div>
-      <img className={classnames(styles.img)} src={item.imageUrl} />
+      <img className={classnames(styles.img)} src={getImage(item.key)} />
     </div>
   );
+};
+
+const getImage = key => {
+  let dataArray = {
+    baby: Baby,
+    beverages: Beverages,
+    "bakery-cakes-dairy": BakeryCakesDairy,
+    "beauty-hygiene": Beauty,
+    "fruit-and-veg": Fruit
+  };
+
+  return dataArray[key];
 };
 
 export default Home;

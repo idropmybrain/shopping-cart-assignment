@@ -48,10 +48,16 @@ module.exports = {
         }
       },
       {
-        test: /\.(jpg|png)$/,
-        use: {
-          loader: "url-loader"
-        }
+        test: /\.(png|jp(e*)g|svg)$/,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 8000, // Convert images < 8kb to base64 strings
+              name: "images/[hash]-[name].[ext]"
+            }
+          }
+        ]
       }
     ]
   },
@@ -71,6 +77,7 @@ module.exports = {
   ],
   devServer: {
     contentBase: DIST_DIR,
+    publicPath: "/",
     hot: true,
     port: 3000,
     historyApiFallback: true
