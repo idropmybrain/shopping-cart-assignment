@@ -4,6 +4,8 @@
   position: absolute;
   top: 56px;
   right: 0;
+  z-index: 10002;
+
   background-color: rgba(0, 0, 0,  .65);
   color: white;
 }
@@ -15,4 +17,20 @@
 .qtyButton {
   height: 40px;
   width: 40px;
+}
+
+.scrollableContainer {
+    height: calc(100vh - 113px);
+    overflow-y: scroll;
+}
+
+.backdrop {
+    height: calc(100vh - 56px);
+    width: 100vw;
+    position: absolute;
+    background-color: #f7f7f773;
+    left: 0;
+    z-index: 10001;
+    right: 0;
+
 }
