@@ -7,7 +7,8 @@ import {
   Link
 } from "react-router-dom";
 import Button from "../button/button";
-import Cart from "../../images/cart.svg";
+import CartIcon from "../../images/cart.svg";
+import Cart from "../Cart/cart";
 
 import classnames from "classnames";
 import styles from "./header.scss";
@@ -61,43 +62,15 @@ export default function Header({ cartItem, setCartItem }) {
               setOpenCart(!openCart);
             }}
           >
-            <img src={Cart} style={{ height: "40px", width: "40px" }} />
-            {Object.keys(cartItem).length}
+            <img src={CartIcon} style={{ height: "40px", width: "40px" }} />
+            {Object.keys(cartItem).length > 0 &&
+              `${Object.keys(cartItem).length} item${
+                Object.keys(cartItem).length > 1 ? "s" : ""
+              }`}
           </div>
         )}
-        {openCart && (
-          <div>
-            <div className={styles.openCart}>{renderCart(cartItem)}</div>
-          </div>
-        )}
+        {openCart && <Cart cartItem={cartItem} />}
       </div>
     </div>
   );
 }
-
-const renderCart = cartItem => {
-  return (
-    <div>
-      <h3>{`My Cart (${Object.keys(cartItem).length})`}</h3>
-      <div>
-        {Object.keys(cartItem).map(item => (
-          <div className="d-flex">
-            <img
-              className={styles.imgHolder}
-              src={cartItem[item].imageURL}
-              alt="no image"
-            />
-            <div className="d-flex flex-column">
-              <h4>{cartItem[item].name}</h4>
-              <div className="d-flex">
-                <Button label="+" />
-                <p>{cartItem[item].quantity}</p>
-                <Button label="-" />
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};

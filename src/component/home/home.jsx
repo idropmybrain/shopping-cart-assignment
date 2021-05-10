@@ -24,7 +24,6 @@ const Home = () => {
 };
 
 const designHome = (item, direction) => {
-  console.log("item: ", item);
   return (
     <div
       className={classnames("d-flex justify-content-between ", styles["w-100"])}

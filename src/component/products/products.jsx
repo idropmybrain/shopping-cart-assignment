@@ -5,6 +5,7 @@ import classnames from "classnames";
 import ProductsData from "../../../dataStore/products.json";
 import Categories from "../../../dataStore/categories.json";
 import { useHistory, useLocation } from "react-router-dom";
+import { getImage } from "../utility/util";
 let query = null;
 const Products = ({ cartItem, setCartItem }) => {
   const history = useHistory();
@@ -15,7 +16,6 @@ const Products = ({ cartItem, setCartItem }) => {
 
   query = useQuery();
   let searchString = query.get("search");
-  console.log(searchString);
   return (
     <div className={classnames(styles.productContainer)}>
       <div
@@ -56,7 +56,7 @@ const renderProducts = (item, cartItem, setCartItem) => {
     <div className={classnames(styles.product, "m-2 ")}>
       <h5 className="fw-bold p-2">{item.name}</h5>
       <div>
-        <img className={styles.productImg} src={item.imageURL} />
+        <img className={styles.productImg} src={getImage(item.id)} />
         <p className={classnames(styles.productDescription, "fw-bold m-2 p-2")}>
           {item.description}
         </p>
