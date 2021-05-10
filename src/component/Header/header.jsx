@@ -69,7 +69,7 @@ export default function Header({ cartItem, setCartItem }) {
               }`}
           </div>
         )}
-        {openCart && <Cart cartItem={cartItem} />}
+        {openCart && <Cart cartItem={cartItem} setOpenCart={setOpenCart} />}
       </div>
     </div>
   );

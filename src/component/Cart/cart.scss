@@ -1,6 +1,6 @@
 .cart {
   width: 500px;
-  height: 100vh;
+  height: calc(100vh - 56px);
   position: absolute;
   top: 56px;
   right: 0;
@@ -10,4 +10,9 @@
 
 .imgHolder {
   height: 110px;
+}
+
+.qtyButton {
+  height: 40px;
+  width: 40px;
 }
